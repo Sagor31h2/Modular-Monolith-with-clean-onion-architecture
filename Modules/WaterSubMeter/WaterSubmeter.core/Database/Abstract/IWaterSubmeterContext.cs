@@ -5,7 +5,7 @@ namespace WaterSubMeter.core.DataAccess.Abstract
 {
     public interface IWaterSubmeterContext
     {
-        public DbSet<Meter> Brands { get; set; }
+        public DbSet<Meter> Meters { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

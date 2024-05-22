@@ -11,7 +11,7 @@ namespace WaterSubMeter.core.Database.Concreate
         {
         }
 
-        public DbSet<Meter> Brands { get; set; }
+        public DbSet<Meter> Meters { get; set; }
 
         protected override string Schema => "WaterSubMeter";
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using Shared.Infrastructure.Extensions;
+using WaterSubMeter.Extensions;
 
 namespace SmartFM
 {
@@ -17,7 +18,7 @@ namespace SmartFM
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSharedInfrastructure(Configuration);
-            //services.AddCatalogModule(Configuration);
+            services.AddWaterSubmeterModule(Configuration);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
