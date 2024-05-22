@@ -1,6 +1,3 @@
-
-using Microsoft.AspNetCore.Hosting;
-
 namespace SmartFM
 {
     public class Program
