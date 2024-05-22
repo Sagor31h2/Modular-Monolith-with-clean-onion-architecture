@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Infrastructure.Extensions;
-using WaterSubMeter.core.DataAccess.Abstract;
-using WaterSubMeter.core.Database.Concreate;
+using WaterSubMeter.core.Database.Abstract;
+using WaterSubMeter.Infrastructure.Persistance;
 
 namespace WaterSubMeter.Infrastructure.Extensions
 {

@@ -1,6 +1,6 @@
 ﻿namespace WaterSubMeter.core.Entity
 {
-    public class Meter
+    public class WaterSubmeter
     {
 
         public int Id { get; set; }

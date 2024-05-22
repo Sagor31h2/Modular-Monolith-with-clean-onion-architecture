@@ -1,17 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shared.Infrastructure.Persistence;
-using System.Diagnostics.Metrics;
-using WaterSubMeter.core.DataAccess.Abstract;
+using WaterSubMeter.core.Database.Abstract;
 
-namespace WaterSubMeter.core.Database.Concreate
+
+namespace WaterSubMeter.Infrastructure.Persistance
 {
     internal class WaterSubmeterContext : ModuleDbContext, IWaterSubmeterContext
     {
-        public WaterSubmeterContext(DbContextOptions options) : base(options)
+        public WaterSubmeterContext(DbContextOptions<WaterSubmeterContext> options) : base(options)
         {
         }
 
-        public DbSet<Meter> Meters { get; set; }
+        public DbSet<core.Entity.WaterSubmeter> Meters { get; set; }
 
         protected override string Schema => "WaterSubMeter";
 

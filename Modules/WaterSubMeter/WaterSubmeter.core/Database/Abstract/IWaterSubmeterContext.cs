@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.Metrics;
 
-namespace WaterSubMeter.core.DataAccess.Abstract
+namespace WaterSubMeter.core.Database.Abstract
 {
     public interface IWaterSubmeterContext
     {
-        public DbSet<Meter> Meters { get; set; }
+        public DbSet<Entity.WaterSubmeter> Meters { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
