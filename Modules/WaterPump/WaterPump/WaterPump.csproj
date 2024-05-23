@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WaterPump.Core\WaterPump.Core.csproj" />
+    <ProjectReference Include="..\WaterPump.Ifrastructure\WaterPump.Ifrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

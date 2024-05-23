@@ -2,6 +2,7 @@
 using Shared.Infrastructure.Extensions;
 using WaterSubMeter.Extensions;
 
+
 namespace SmartFM
 {
     public class Startup
