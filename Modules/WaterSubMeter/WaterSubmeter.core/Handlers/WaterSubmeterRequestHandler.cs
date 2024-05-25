@@ -6,7 +6,7 @@ using WaterSubMeter.core.Queries;
 
 namespace WaterSubMeter.core.Handlers
 {
-    internal class WaterSubmeterRequestHandler : IRequestHandler<waterpumpRequest, List<WaterSubmeter>>
+    internal class WaterSubmeterRequestHandler : IRequestHandler<waterSubmeterRequest, List<WaterSubmeter>>
     {
         private readonly IWaterSubmeterContext context;
 
@@ -15,7 +15,7 @@ namespace WaterSubMeter.core.Handlers
             this.context = context;
         }
 
-        async Task<List<WaterSubmeter>> IRequestHandler<waterpumpRequest, List<WaterSubmeter>>.Handle(waterpumpRequest request, CancellationToken cancellationToken)
+        async Task<List<WaterSubmeter>> IRequestHandler<waterSubmeterRequest, List<WaterSubmeter>>.Handle(waterSubmeterRequest request, CancellationToken cancellationToken)
         {
             var list = await context.Meters.ToListAsync();
             return list;

@@ -1,9 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using WaterSubMeter.core.Database.Abstract;
-using WaterSubMeter.core.Entity;
+using WaterSubMeter.core.Models;
 using WaterSubMeter.core.Queries;
-using WaterSubMeter.core.Service;
 
 namespace WaterSubMeter.Controllers
 {
@@ -11,29 +9,27 @@ namespace WaterSubMeter.Controllers
     [Route("/api/WaterSubmeter/[controller]")]
     internal class MeterController : ControllerBase
     {
-        private readonly TestService testService;
-        private readonly IWaterSubmeterContext waterSubmeter;
+
         private readonly IMediator mediatR;
 
-        public MeterController(IWaterSubmeterContext waterSubmeter, IMediator mediatR)
+        public MeterController(IMediator mediatR)
 
         {
-            this.testService = new TestService(waterSubmeter);
-            this.waterSubmeter = waterSubmeter;
             this.mediatR = mediatR;
         }
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var query = new waterpumpRequest();
+            var query = new waterSubmeterRequest();
             return Ok(await mediatR.Send(query));
             //return Ok(await testService.getall());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(WaterSubmeter waterSubmeter)
+        public async Task<IActionResult> Post(WaterSubmeterCreateModel waterSubmeter)
         {
-            return Ok(await testService.create(waterSubmeter));
+            var query = new WaterSubmeterCommand(waterSubmeter);
+            return Ok(await mediatR.Send(query));
         }
     }
 }

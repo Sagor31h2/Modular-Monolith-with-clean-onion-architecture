@@ -5,7 +5,7 @@ using WaterPump.Core.Entity;
 
 namespace WaterPump.Ifrastructure.Persistance
 {
-    internal class WaterPumpContext : ModuleDbContext, IWaterPumpContext
+    internal class WaterPumpContext : SharedDbContext, IWaterPumpContext
     {
         public WaterPumpContext(DbContextOptions options) : base(options)
         {

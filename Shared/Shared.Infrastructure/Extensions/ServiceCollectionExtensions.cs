@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared.Core.Database;
 using Shared.Infrastructure.Controllers;
+using Shared.Infrastructure.Persistence;
 
 namespace Shared.Infrastructure.Extensions
 {
@@ -14,6 +16,9 @@ namespace Shared.Infrastructure.Extensions
                 {
                     manager.FeatureProviders.Add(new InternalControllerFeatureProvider());
                 });
+            services
+                .AddDatabaseContext<SharedDbContext>(config)
+                .AddScoped<ISharedDbContext>(provider => provider.GetService<SharedDbContext>());
             return services;
         }
 
