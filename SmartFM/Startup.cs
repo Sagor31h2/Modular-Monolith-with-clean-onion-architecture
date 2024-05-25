@@ -20,6 +20,7 @@ namespace SmartFM
         {
             services.AddSharedInfrastructure(Configuration);
             services.AddWaterSubmeterModule(Configuration);
+            services.AddWaterPumpModule(Configuration);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });

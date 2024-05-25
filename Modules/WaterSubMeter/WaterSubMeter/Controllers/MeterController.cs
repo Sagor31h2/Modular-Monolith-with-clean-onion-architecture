@@ -16,7 +16,7 @@ namespace WaterSubMeter.Controllers
         private readonly IMediator mediatR;
 
         public MeterController(IWaterSubmeterContext waterSubmeter, IMediator mediatR)
-        
+
         {
             this.testService = new TestService(waterSubmeter);
             this.waterSubmeter = waterSubmeter;
