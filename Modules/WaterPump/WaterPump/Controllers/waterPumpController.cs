@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using WaterPump.Core.Models;
 using WaterPump.Core.Queries;
 
 namespace WaterPump.Controllers
@@ -18,6 +19,13 @@ namespace WaterPump.Controllers
         public async Task<IActionResult> Get()
         {
             var query = new GetPums();
+            return Ok(await mediator.Send(query));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> create(WaterPumpCreate pumpCreate)
+        {
+            var query = new WaterPumpCreateRequest(pumpCreate);
             return Ok(await mediator.Send(query));
         }
     }
