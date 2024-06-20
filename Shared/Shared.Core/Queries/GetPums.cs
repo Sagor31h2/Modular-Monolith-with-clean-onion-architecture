@@ -6,8 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WaterPump.Core.Queries
+namespace Shared.Core.Queries
 {
-    public record class GetPums:IRequest<List<WaterPumps>>;
-    
+    public record class GetPums : IRequest<List<WaterPumps>>;
+
 }

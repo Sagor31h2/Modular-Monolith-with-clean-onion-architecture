@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Shared.Infrastructure.Persistence
+namespace Shared.Infrastructure.Persistance
 {
     public abstract class ModuleDbContext : DbContext
     {

@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WaterPump.Core.Extenstions;
 using WaterPump.Ifrastructure.Extensions;
 
-namespace WaterSubMeter.Extensions
+namespace WaterPump.Extensions
 {
     public static class ServiceCollectionExtensions
     {

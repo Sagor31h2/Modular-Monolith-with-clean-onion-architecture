@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using Shared.Infrastructure.Extensions;
+using WaterPump.Extensions;
 using WaterSubMeter.Extensions;
 
 

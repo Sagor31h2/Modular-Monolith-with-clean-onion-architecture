@@ -2,7 +2,7 @@
 using Shared.Core.Database;
 using Shared.Core.Entity;
 
-namespace Shared.Infrastructure.Persistence
+namespace Shared.Infrastructure.Persistance
 {
     public class SharedDbContext : ModuleDbContext, ISharedDbContext
     {

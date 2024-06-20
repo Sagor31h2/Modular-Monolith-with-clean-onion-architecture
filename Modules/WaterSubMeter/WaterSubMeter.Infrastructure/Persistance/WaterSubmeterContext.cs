@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Shared.Infrastructure.Persistence;
+using Shared.Infrastructure.Persistance;
 using WaterSubMeter.core.Database.Abstract;
 
 

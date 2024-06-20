@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Core.Database;
 using Shared.Infrastructure.Controllers;
-using Shared.Infrastructure.Persistence;
+using Shared.Infrastructure.Persistance;
 
 namespace Shared.Infrastructure.Extensions
 {

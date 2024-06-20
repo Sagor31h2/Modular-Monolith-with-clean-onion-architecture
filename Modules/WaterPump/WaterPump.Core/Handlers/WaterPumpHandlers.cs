@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Shared.Core.Models.WaterPump;
+using Shared.Core.Queries;
 using WaterPump.Core.Database;
-using WaterPump.Core.Queries;
 
 namespace WaterPump.Core.Handlers
 {
