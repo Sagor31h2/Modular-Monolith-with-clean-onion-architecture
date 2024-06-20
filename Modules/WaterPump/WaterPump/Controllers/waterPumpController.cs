@@ -1,32 +1,34 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Controllers;
 using WaterPump.Core.Models;
 using WaterPump.Core.Queries;
 
 namespace WaterPump.Controllers
 {
-    [ApiController]
-    [Route("/api/WaterPump/[controller]")]
-    internal class WaterPumpController : ControllerBase
-    {
-        private readonly IMediator mediator;
 
-        public WaterPumpController(IMediator mediator)
+    [Route("/api/WaterPump/[controller]")]
+    internal class WaterPumpController : BaseController
+    {
+        private readonly ISender sender;
+
+        public WaterPumpController(ISender sender) : base(sender)
         {
-            this.mediator = mediator;
+            this.sender = sender;
         }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             var query = new GetPums();
-            return Ok(await mediator.Send(query));
+            return Ok(await sender.Send(query));
         }
 
         [HttpPost]
         public async Task<IActionResult> create(WaterPumpCreate pumpCreate)
         {
             var query = new WaterPumpCreateRequest(pumpCreate);
-            return Ok(await mediator.Send(query));
+            return Ok(await sender.Send(query));
         }
     }
 }
