@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Controllers;
 using System.Reflection;
 
-namespace Shared.Infrastructure.Controllers
+namespace Shared.Infrastructure.Helper
 {
     internal class InternalControllerFeatureProvider : ControllerFeatureProvider
     {
