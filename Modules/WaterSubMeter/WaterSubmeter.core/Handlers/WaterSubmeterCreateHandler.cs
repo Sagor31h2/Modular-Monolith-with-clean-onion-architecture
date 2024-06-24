@@ -5,14 +5,8 @@ using WaterSubMeter.core.Queries;
 
 namespace WaterSubMeter.core.Handlers
 {
-    internal class WaterSubmeterCreateHandler : IRequestHandler<WaterSubmeterCommand, int>
+    internal class WaterSubmeterCreateHandler(IWaterSubmeterContext coontext) : IRequestHandler<WaterSubmeterCommand, int>
     {
-        private readonly IWaterSubmeterContext waterSubmeterContext;
-
-        public WaterSubmeterCreateHandler(IWaterSubmeterContext waterSubmeterContext)
-        {
-            this.waterSubmeterContext = waterSubmeterContext;
-        }
         async Task<int> IRequestHandler<WaterSubmeterCommand, int>.Handle(WaterSubmeterCommand request, CancellationToken cancellationToken)
         {
             var waterSubmeter = new WaterSubmeter
@@ -20,8 +14,8 @@ namespace WaterSubMeter.core.Handlers
                 Name = request.CreateModel.Name,
                 Detail = request.CreateModel.Detail,
             };
-            await waterSubmeterContext.Meters.AddAsync(waterSubmeter);
-            await waterSubmeterContext.SaveChangesAsync();
+            await coontext.Meters.AddAsync(waterSubmeter);
+            await coontext.SaveChangesAsync();
 
             return waterSubmeter.Id;
         }

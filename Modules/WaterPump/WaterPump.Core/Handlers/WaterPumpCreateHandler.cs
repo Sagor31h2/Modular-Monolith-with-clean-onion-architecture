@@ -5,14 +5,8 @@ using WaterPump.Core.Queries;
 
 namespace WaterPump.Core.Handlers
 {
-    internal class WaterPumpCreateHandler : IRequestHandler<WaterPumpCreateRequest, int>
+    internal class WaterPumpCreateHandler(IWaterPumpContext context) : IRequestHandler<WaterPumpCreateRequest, int>
     {
-        private readonly IWaterPumpContext context;
-
-        public WaterPumpCreateHandler(IWaterPumpContext context)
-        {
-            this.context = context;
-        }
         public async Task<int> Handle(WaterPumpCreateRequest request, CancellationToken cancellationToken)
         {
             var pump = new WaterPumpInfo
