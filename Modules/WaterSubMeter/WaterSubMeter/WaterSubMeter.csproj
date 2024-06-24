@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Shared\Shared.csproj" />
     <ProjectReference Include="..\WaterSubmeter.core\WaterSubMeter.core.csproj" />
     <ProjectReference Include="..\WaterSubMeter.Infrastructure\WaterSubMeter.Infrastructure.csproj" />
   </ItemGroup>
