@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Query\" />
+    <Compile Remove="Query\**" />
+    <EmbeddedResource Remove="Query\**" />
+    <None Remove="Query\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Modules\WaterPump\WaterPump.Ifrastructure\WaterPump.Ifrastructure.csproj" />
     <ProjectReference Include="..\Shared.Core\Shared.Core.csproj" />
   </ItemGroup>
 

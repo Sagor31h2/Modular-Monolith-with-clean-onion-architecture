@@ -17,7 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Modules\WaterPump\WaterPump\WaterPump.csproj" />
     <ProjectReference Include="..\Modules\WaterSubMeter\WaterSubMeter\WaterSubMeter.csproj" />
-    <ProjectReference Include="..\Shared\Shared.Infrastructure\Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\Shared\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>

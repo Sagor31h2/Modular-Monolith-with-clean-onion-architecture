@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using Shared.Extensions;
 using Shared.Infrastructure.Extensions;
 using WaterPump.Extensions;
 using WaterSubMeter.Extensions;
@@ -19,7 +20,7 @@ namespace SmartFM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSharedInfrastructure(Configuration);
+            services.AddSharedModule(Configuration);
             services.AddWaterSubmeterModule(Configuration);
             services.AddWaterPumpModule(Configuration);
             services.AddSwaggerGen(c =>
