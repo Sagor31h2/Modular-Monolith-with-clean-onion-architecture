@@ -3,6 +3,6 @@ using WaterSubMeter.core.Entity;
 
 namespace WaterSubMeter.core.Queries
 {
-    public record waterSubmeterRequest() : IRequest<List<WaterSubmeter>>;
+    public record WaterSubmeterRequest() : IRequest<List<WaterSubmeter>>;
 
 }

@@ -10,13 +10,10 @@ namespace WaterPump.Ifrastructure.Persistance
         public WaterPumpContext(DbContextOptions options) : base(options)
         {
         }
+        protected override string Schema => "waterPump";
 
         public DbSet<WaterPumpInfo> WaterPumpInfos { get; set; }
 
-        protected override string Schema => "waterPump";
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        
     }
 }

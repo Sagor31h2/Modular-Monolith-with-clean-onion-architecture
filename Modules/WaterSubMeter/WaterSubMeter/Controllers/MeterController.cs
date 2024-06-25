@@ -13,7 +13,7 @@ namespace WaterSubMeter.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var query = new waterSubmeterRequest();
+            var query = new WaterSubmeterRequest();
             return Ok(await sender.Send(query));
         }
 
