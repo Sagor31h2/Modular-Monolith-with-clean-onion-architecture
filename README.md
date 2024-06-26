@@ -7,7 +7,7 @@ Modular Monolithic Architecture is a software architecture that combines the **
 ## **Benefits Of Modular Monolith:**
 
 - The modular monolithic architecture **divided our application logic into modules**
-- Eacch module will be **independent** and **isolated**
+- Each module will be **independent** and **isolated**
 - Each module should have its own business logic — and, if necessary, its database or schema.
 - Deploying a modular monolith is simpler compared to distributed systems, as there’s only one deployment artifact to manage
 - A well-structured modular monolith offers a clear path to a micro services architecture. We can separate the module to an independent service when the need arises.
@@ -18,11 +18,12 @@ Read More:
 
 [What Is a Modular Monolith? (milanjovanovic.tech)](https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith)
 
+#
 # Mediator Pattern
 
 ![MediatR](./ProjectDoc/images/mediator.png)
 
-#### **Description**
+## **Description**
 
 The Mediator Pattern reduces complexity and dependencies between objects by introducing a mediator. This mediator handles communication between components, promoting loose coupling.
 
@@ -52,102 +53,116 @@ The Mediator Pattern reduces complexity and dependencies between objects by intr
 
 To Read more about mediator patter: [Mediator (refactoring.guru)](https://refactoring.guru/design-patterns/mediator)
 
-<br>
-<br>
 
+#
 # Clean Architecture
 
-![Clean Arc](./ProjectDoc/images/Clean-Architecture-Diagram-Asp-Net.png):
+![Clean Arc](./ProjectDoc/images/Clean-Architecture-Diagram-Asp-Net.png)
 
 ### Onion Architecture is a software design pattern that promotes loose coupling, high cohesion, and separation of concerns. Let’s dive into the details:
 
-1. **Principles of Onion Architecture:**
+## **Principles of Onion Architecture:**
 
-   - **Inversion of Control (IoC):** The architecture relies on IoC, where layers interface with each other toward the core (representing the domain). Unlike traditional multi-tier architectures, it doesn’t depend on the data layer but focuses on actual domain models.
-   - **Core Domain Layer:** At the center, we have the domain layer, housing business and behavior objects. This layer is independent of external dependencies.
-   - **Layer Flow:** The flow of dependencies moves from outer layers toward the core, reducing unnecessary coupling.
+- **Inversion of Control (IoC):** The architecture relies on IoC, where layers interface with each other toward the core (representing the domain). Unlike traditional multi-tier architectures, it doesn’t depend on the data layer but focuses on actual domain models.
+- **Core Domain Layer:** At the center, we have the domain layer, housing business and behavior objects. This layer is independent of external dependencies.
+- **Layer Flow:** The flow of dependencies moves from outer layers toward the core, reducing unnecessary coupling.
 
-2. **Layers of Onion Architecture:**
+## **Layers of Onion Architecture:**
 
-   - **Domain Layer:** Contains domain objects (business logic) at the core. Interfaces define interactions with other layers.
-   - **Application Services Layer:** Coordinates domain objects, handles use cases, and interfaces with external systems.
-   - **Infrastructure Layer:** Deals with external concerns like databases, UI, and frameworks. It depends on the inner layers but not vice versa.
+- **Domain Layer:** Contains domain objects (business logic) at the core. Interfaces define interactions with other layers.
+- **Application Services Layer:** Coordinates domain objects, handles use cases, and interfaces with external systems.
+- **Infrastructure Layer:** Deals with external concerns like databases, UI, and frameworks. It depends on the inner layers but not vice versa.
 
-3. **Benefits:**
-   - **Maintainability:** Clear separation makes it easier to modify and extend the codebase.
-   - **Testing:** Loose coupling enables effective unit testing.
-   - **Flexibility:** Reuse components across different applications.
-   - **Identifying Issues:** Clear boundaries help identify and fix issues efficiently.
+## **Benefits:**
+
+- **Maintainability:** Clear separation makes it easier to modify and extend the codebase.
+- **Testing:** Loose coupling enables effective unit testing.
+- **Flexibility:** Reuse components across different applications.
+- **Identifying Issues:** Clear boundaries help identify and fix issues efficiently.
 
 Read More: [Clean Architecture in ASP.NET Core - NDepend Blog](https://blog.ndepend.com/clean-architecture-for-asp-net-core-solution/)
+
+#
 
 ## Project Structure:
 
 ![Project Structure](./ProjectDoc/images/Project_sturcture.PNG)
 
-The Main project is a webApi (SmartFM) Project. Other Projects are class library project.
+The Main project is a **WebApi (SmartFM) Project**.<br>
+Other Projects are **Class Library Project**.
 
-The projects are connected with references. We can think this project is a single project. But logically separated. In future we can separate the projects by creating a new project and cut the module and add reference
+The projects are connected with references. We can think this project is a single project. But logically separated.<br> In future we can separate the projects by creating a new project and cut the module and add reference
 
-<br>
-
+#
 ## Module Structure:
 
 ![Module Structure](./ProjectDoc/images/Module_struc.PNG)
 
-Here the module structure follows clean architecture.
+### Here the modules structure follows clean architecture.
 
 - Core is consisting of domain models and business logic.
 - The main is containing Controllers and others
-- The infrastructure is containing Database layer
+- The infrastructure is containing Database layer and etc
+
+#
 
 ## Project References:
+> **Water Pump project Reference**
 
 ![Project Reference](./ProjectDoc/images/project_reference.PNG)
 
-## Shared project reference:
+> **Shared project reference:**
 
 ![Shared Reference](./ProjectDoc/images/share_module_refrence.PNG)
 
-## Api Project Reference:
+> **Api Project Reference:**
 
 ![Api Project Reference](./ProjectDoc/images/Api_project_reference.PNG)
 
-For Example, pick water pump module. The project contains all reference of shared module. And internal module reference. The shared module reference is shown in Red Arrow and The Internal reference in Green Arrow
+For example, pick **Water Pump Module**. The project contains all references of shared module. The **External Module** reference is shown in <span style="color:red;">Red Arrow</span> and the internal reference in <span style="color:green;">Green Arrow</span>
 
+#
 ## Package of the project:
+> **Shared Module Packages**
 
 ![Shared packages](./ProjectDoc/images/shared_packages.PNG)
 
-As All other modules take reference of shared module. So, the packages are installed are in only shared module.
-
-- The package in shared used for provide controller properties
+### As All other modules take reference of shared module. So, the packages are installed are in only **shared module**.
+### **Shared**
+The package in shared used for provide controller properties
 
   - **Microsoft.AspNetCore.Mvc.Core**:
-    - Purpose: Provides essential MVC components and features for building web applications using the Model-View-Controller (MVC) pattern in ASP.NET Core.
-    - Key Features: Includes controllers, action results, model binding, validation, routing, filters, dependency injection, middleware integration, and facilitates development of web APIs and web applications handling HTTP requests and responses efficiently.
+    - **Purpose:** Provides essential MVC components and features for building web applications using the Model-View-Controller (MVC) pattern in ASP.NET Core.
+    - **Key Features:** Includes controllers, action results, model binding, validation, routing, filters, dependency injection, middleware integration, and facilitates development of web APIs and web applications handling HTTP requests and responses efficiently.
+  
 
-- In core the package mediatR use for resolve request from modules and transfer data. Efcore is use for relation query
+### **Core**
+In core the package mediatR use for resolve request from modules and transfer data. Efcore is use for relation query
+
   - **Entity Framework Core (EF Core):** Simplifies database access and management through object-relational mapping (ORM) in .NET applications.
   - **MediatR**: Facilitates decoupled communication between components using the mediator pattern in .NET applications.
-- In Infrastructure the packages are used for database migration and generating Database models
+
+### **Infrastructure**
+In Infrastructure the packages are used for database migration and generating Database models.
   - **Entity Framework Core (EF Core)**: Provides the core ORM functionalities and APIs for .NET applications.
   - **Microsoft.EntityFrameworkCore.SqlServer**: A database provider for EF Core, specifically optimized for SQL Server interactions.
   - **Microsoft.EntityFrameworkCore.Tools**: Command-line tools for EF Core, aiding in database migrations, scaffolding, and other development tasks.
 
-## WebApi project packages:
+> **WebApi project packages:**
 
 ![Web Api Packages](./ProjectDoc/images/api_packages.PNG)
 
-- In web api project the Efcore design and swagger package
+In web api project the Efcore design and swagger package
   - **Microsoft.EntityFrameworkCore.Design:** Facilitates EF Core database migrations and scaffolding DbContext and entity classes from existing schemas, integrating command-line tools (dotnet ef) for streamlined development workflows.
   - **Swashbuckle.AspNetCore:** Automatically generates Swagger/OpenAPI documentation for ASP.NET Core Web APIs, enabling interactive documentation and testing through Swagger UI.
 
-## How the project integrated infernally explained below:
+#
+# How the project integrated internally:
 
-First how the project detects the controllers from different class library project.
+***<span style="color: red;">To Avoid confusion please track the location after namespace</span>***
+> **Internal Controller Feature Provider**
 
-In shared>Infrastructure>Helper> InternalControllerFeatureProvider
+<span style=" text-decoration: underline;">Shared>Infrastructure>Helper>InternalControllerFeatureProvider </span>
 
 ```c#
 namespace Shared.Infrastructure.Helper
@@ -178,10 +193,11 @@ namespace Shared.Infrastructure.Helper
     }
 }
 ```
+This will detect the controllers from the different service
 
-A BaseController is also introduced in
+> **BaseController**
 
-Shared>Shared>Controllers> BaseController
+<span style=" text-decoration: underline;">Shared>Shared>Controllers> BaseController </span>
 
 ```C#
 namespace Shared.Controllers
@@ -196,7 +212,9 @@ namespace Shared.Controllers
 
 Which Contains definition of ApiController. And initialize ISender from MediatR. ISender will help to resolve query requests by scanning the Assembly reference. Later part will discuss the process.
 
-**Shared> InfraStructure>Extensions>ServiceCollectionExtension**
+> **Shared Infrastructure Extension**
+> 
+<span style=" text-decoration: underline;">Shared> InfraStructure>Extensions>ServiceCollectionExtension</span>
 
 ```C#
 namespace Shared.Infrastructure.Extensions
@@ -242,7 +260,9 @@ and Extension method to add
 
 If needed we can add more
 
-### Shared>InfraSturcture>Persistance > ModuleDbContext
+> **Module Context**
+
+<span style=" text-decoration: underline;"> Shared>InfraSturcture>Persistance > ModuleDbContext </span>
 
 ```C#
 namespace Shared.Infrastructure.Persistance
@@ -271,8 +291,9 @@ namespace Shared.Infrastructure.Persistance
 ```
 
 The method will add the schema and dbContext from different services. We will inherit in Shared Context. Then all other context will inherit the share context
+> **Shared Context**
 
-Shared>InfraSturcture>Persistance > SharedDbContext
+<span style=" text-decoration: underline;"> Shared>Infrastructure>Persistance > SharedDbContext </span>
 
 ```C#
 namespace Shared.Infrastructure.Persistance
@@ -298,13 +319,13 @@ The shared db context will contain all common db sets. So, after inherited all h
 
 # **How A Module works Modular**
 
-Let's pick Water Pump Module
+**Let's pick Water Pump Module**
 
-#### **In Infrastructure Extension**
+> **Water Pump Infrastructure Extension**
 
 Add db context
 
-In Infrastructure>Extensions>ServiceCollectionExtension
+<span style=" text-decoration: underline;">Infrastructure>Extensions>ServiceCollectionExtension</span>
 
 ```C#
 namespace WaterPump.Ifrastructure.Extensions
@@ -322,7 +343,7 @@ namespace WaterPump.Ifrastructure.Extensions
 }
 ```
 
-#### **In Core Extension**
+> **Water Pump Core Extension**
 
 Add MediatR
 
@@ -340,7 +361,7 @@ namespace WaterPump.Core.Extenstions
 }
 ```
 
-#### **In Water Pump Extension**
+>**Water Pump Extension**
 
 Add Core and Infrastructure
 
@@ -360,7 +381,7 @@ namespace WaterPump.Extensions
 }
 ```
 
-#### **In Web Api Startup**
+>**Web Api Startup**
 
 Add Water Pump Module and pass configuration
 
@@ -381,15 +402,15 @@ public void ConfigureServices(IServiceCollection services)
     });
 }
 ```
-
+#
 # **How An Api Call works in The Module**
 
-#### **Add Module Data Base**
+> **Add Module Data Base**
 
 Inherit the shared db context which resolves the db connection and provide shared context dbset like Location. Here this Schema is “WaterPump”. And shared context Schema was “Core. Same database but logically separated
 
 ```C#
-namespace WaterPump.Ifrastructure.Persistance
+namespace WaterPump.Infrastructure.Persistance
 {
     internal class WaterPumpContext : SharedDbContext, IWaterPumpContext
     {
@@ -405,8 +426,9 @@ namespace WaterPump.Ifrastructure.Persistance
 }
 ```
 
-#### **Create A request**
+> **Create A request**
 
+Inherit **IRequest** From MediatR
 ```c#
 namespace WaterPump.Core.Queries
 {
@@ -415,9 +437,10 @@ namespace WaterPump.Core.Queries
 }
 ```
 
-Inherit IRequest From MediatR
 
-#### **Handle The Request**
+> **Handle The Request**
+
+Inherit the **IRequestHandler** From MediatR. And handle the request
 
 ```C#
 
@@ -442,9 +465,13 @@ namespace WaterPump.Core.Handlers
 }
 ```
 
-Inherit the IRequestHandler From MediatR. And handle the request
 
-**Call From Controller**
+>**Call From Controller**
+
+Inherit **Base Controller**. And Inject ISender From MediatR.
+Create query pass the parameter.
+And send the query.
+MediatR will handle the request.
 
 ```C#
 namespace WaterPump.Controllers
@@ -469,18 +496,14 @@ namespace WaterPump.Controllers
 }
 ```
 
-Inherit Base Controller. And Inject ISender From MediatR.
-Create query pass the parameter.
-And send the query.
-MediatR will handle the request.
-
 ##
 
 ## **How Call Other Module Query**
 
-Let's we want to access some data from water pump module.
+Let's say, we want to access some data from water pump module.
 
-**Create the query in shared Query**
+>**Create the query in shared Query**
+As all modules has the reference of Shared. So Other Module can access this request.
 
 ```C#
 namespace Shared.Core.Queries
@@ -490,9 +513,10 @@ namespace Shared.Core.Queries
 }
 ```
 
-As all modules has the reference of Shared. So Other Module can access this request.
 
-#### **Call the query From Shared Controller**
+
+> **Call the query From Shared Controller**
+We are calling the query from shared controller. We also called the same query from Water Pump Controller.
 
 ```C#
 namespace Shared.Controllers
@@ -511,9 +535,12 @@ namespace Shared.Controllers
 }
 ```
 
-We are calling the query from shared controller. We also called the same query from waterpump Controller
 
-#### **Get Pump Handler**
+
+> **Get Pump Handler**
+
+The Get Pump handler in **Water Pump** module.
+But we can access this by MediatR
 
 ```C#
 namespace WaterPump.Core.Handlers
@@ -533,11 +560,8 @@ namespace WaterPump.Core.Handlers
     }
 }
 ```
-
-The Get Pump handler in water Pump module.
-But we can access this by MediatR
-
-MediatR Interfaces
+#
+## MediatR Interfaces
 
 - **IMediator**: The full interface for sending requests and publishing notifications.
 - **ISender**: A simplified interface for sending requests that expect responses.
