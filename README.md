@@ -496,13 +496,14 @@ namespace WaterPump.Controllers
 }
 ```
 
-##
+#
 
-## **How Call Other Module Query**
+# **How Call Other Module Query**
 
 Let's say, we want to access some data from water pump module.
 
 >**Create the query in shared Query**
+
 As all modules has the reference of Shared. So Other Module can access this request.
 
 ```C#
@@ -516,6 +517,7 @@ namespace Shared.Core.Queries
 
 
 > **Call the query From Shared Controller**
+
 We are calling the query from shared controller. We also called the same query from Water Pump Controller.
 
 ```C#
